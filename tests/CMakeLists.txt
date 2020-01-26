@@ -7,5 +7,5 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED YES)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-add_executable(raytracer-tests main.cpp)
+add_executable(raytracer-tests main.cpp tests-tuple.cpp)
 target_link_libraries(raytracer-tests PRIVATE Catch2::Catch2 ${CMAKE_DL_LIBS})
