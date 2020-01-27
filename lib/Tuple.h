@@ -1,4 +1,6 @@
-#include <iostream>
+#pragma once
+
+#include <ostream>
 #include <cmath>
 
 const double EPSILON = 1e-6;
@@ -66,21 +68,4 @@ private:
     double _w;
 };
 
-class Point : public Tuple
-{
-public:
-    Point(double x, double y, double z) :
-        Tuple(x, y, z, 1.0)
-    {
-    }
-};
-
-class Vector : public Tuple
-{
-public:
-    Vector(double x, double y, double z) :
-            Tuple(x, y, z, 0.0)
-    {
-    }
-};
 

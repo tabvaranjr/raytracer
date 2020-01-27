@@ -1,6 +1,8 @@
 #include "catch2/catch.hpp"
 
 #include "Tuple.h"
+#include "Point.h"
+#include "Vector.h"
 
 SCENARIO("A tuple with w=1.0 is a point")
 {
