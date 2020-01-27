@@ -1,7 +1,6 @@
-#include <ostream>
 #include "catch2/catch.hpp"
 
-#include "../lib/Tuple.h"
+#include "Tuple.h"
 
 SCENARIO("A tuple with w=1.0 is a point")
 {
