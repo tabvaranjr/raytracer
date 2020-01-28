@@ -112,12 +112,17 @@ SCENARIO("vector() create tuples with w=0")
 
 SCENARIO("Adding two tuples")
 {
+    Tuple a1(-3, -2, 5, 1);
+    Tuple a2(-2, 3, 1, 0);
+    
     GIVEN("a1 <- tuple(3, -2, 5, 1)")
     AND_GIVEN("a2 <- tuple(-2, 3, 1, 0)")
     {
         THEN("a1 + a2 = tuple(1, 1, 6, 1)")
         {
-            FAIL();
+            Tuple t(1, 1, 6, 1);
+
+            REQUIRE((a1 + a2) == t)
         }
     }
 }

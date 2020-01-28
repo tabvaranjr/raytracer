@@ -5,32 +5,32 @@ Tuple::Tuple(double x, double y, double z, double w) :
 {
 }
 
-double Tuple::x()
+double Tuple::x() const
 {
     return _x;
 }
 
-double Tuple::y()
+double Tuple::y() const
 {
     return _y;
 }
 
-double Tuple::z()
+double Tuple::z() const
 {
     return _z;
 }
 
-double Tuple::w()
+double Tuple::w() const
 {
     return _w;
 }
 
-bool Tuple::isPoint()
+bool Tuple::isPoint() const
 {
     return _w == 1.0;
 }
 
-bool Tuple::isVector()
+bool Tuple::isVector() const
 {
     return _w == 0.0;
 }
