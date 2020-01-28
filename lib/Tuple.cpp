@@ -1,7 +1,7 @@
 #include "Tuple.h"
 
-Tuple::Tuple(double x, double y, double z, double w) :
-        _x(x), _y(y), _z(z), _w(w)
+Tuple::Tuple(double x, double y, double z, double w)
+    : _x(x), _y(y), _z(z), _w(w)
 {
 }
 
@@ -35,7 +35,7 @@ bool Tuple::isVector() const
     return _w == 0.0;
 }
 
-bool Tuple::operator==(const Tuple &rhs) const
+bool Tuple::operator==(const Tuple& rhs) const
 {
     return isEqual(_x, rhs._x) &&
            isEqual(_y, rhs._y) &&
@@ -43,7 +43,7 @@ bool Tuple::operator==(const Tuple &rhs) const
            isEqual(_w, rhs._w);
 }
 
-std::ostream &operator<<(std::ostream &os, const Tuple &tuple)
+std::ostream& operator<<(std::ostream& os, const Tuple& tuple)
 {
     os << "(" << tuple._x << ", " << tuple._y << ", " << tuple._z << ", " << tuple._w << ")";
     return os;

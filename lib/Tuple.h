@@ -1,7 +1,7 @@
 #pragma once
 
-#include <ostream>
 #include <cmath>
+#include <ostream>
 
 const double EPSILON = 1e-6;
 bool isEqual(double a, double b);
@@ -29,5 +29,3 @@ private:
     double _z;
     double _w;
 };
-
-

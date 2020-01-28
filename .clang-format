@@ -1,0 +1,12 @@
+Language: Cpp
+BasedOnStyle: Chromium
+AccessModifierOffset: -4
+AlignAfterOpenBracket: Align
+AlignConsecutiveMacros: true
+UseTab: Never
+IndentWidth: 4
+BreakBeforeBraces: Allman
+AllowShortIfStatementsOnASingleLine: Never
+IndentCaseLabels: false
+ColumnLimit: 0
+Standard: Cpp11

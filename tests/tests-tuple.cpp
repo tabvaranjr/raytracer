@@ -1,12 +1,12 @@
-#include "catch2/catch.hpp"
+#include <catch2/catch.hpp>
 
-#include "Tuple.h"
 #include "Point.h"
+#include "Tuple.h"
 #include "Vector.h"
 
 SCENARIO("A tuple with w=1.0 is a point")
 {
-    GIVEN("a <- tuple(4.3, -4.2, 3.1, 1.0)" )
+    GIVEN("a <- tuple(4.3, -4.2, 3.1, 1.0)")
     {
         Tuple a(4.3, -4.2, 3.1, 1.0);
 
@@ -44,7 +44,7 @@ SCENARIO("A tuple with w=1.0 is a point")
 
 SCENARIO("A tuple with w=0.0 is a vector")
 {
-    GIVEN("a <- tuple(4.3, -4.2, 3.1, 0.0)" )
+    GIVEN("a <- tuple(4.3, -4.2, 3.1, 0.0)")
     {
         Tuple a(4.3, -4.2, 3.1, 0.0);
 
@@ -114,15 +114,13 @@ SCENARIO("Adding two tuples")
 {
     Tuple a1(-3, -2, 5, 1);
     Tuple a2(-2, 3, 1, 0);
-    
+
     GIVEN("a1 <- tuple(3, -2, 5, 1)")
     AND_GIVEN("a2 <- tuple(-2, 3, 1, 0)")
     {
         THEN("a1 + a2 = tuple(1, 1, 6, 1)")
         {
-            Tuple t(1, 1, 6, 1);
-
-            REQUIRE((a1 + a2) == t)
+            FAIL();
         }
     }
 }
@@ -329,11 +327,10 @@ SCENARIO("The cross product of two vectors")
         {
             FAIL();
         }
-        
+
         AND_THEN("cross(b, a) = vector(1, -2, 1)")
         {
             FAIL();
         }
     }
 }
-
