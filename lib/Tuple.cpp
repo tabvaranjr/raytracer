@@ -1,5 +1,7 @@
 #include "Tuple.h"
 
+#include <ostream>
+
 #include "Math.h"
 
 Tuple::Tuple(double x, double y, double z, double w)
