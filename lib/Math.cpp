@@ -2,7 +2,7 @@
 
 #include <cmath>
 
-bool isEqual(double a, double b, double epsilon)
+bool isApproxEqual(double a, double b, double epsilon)
 {
     return std::abs(a - b) < epsilon;
 }

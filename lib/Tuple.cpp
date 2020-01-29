@@ -41,10 +41,10 @@ bool Tuple::isVector() const
 
 bool Tuple::operator==(const Tuple& rhs) const
 {
-    return isEqual(_x, rhs._x) &&
-           isEqual(_y, rhs._y) &&
-           isEqual(_z, rhs._z) &&
-           isEqual(_w, rhs._w);
+    return isApproxEqual(_x, rhs._x) &&
+           isApproxEqual(_y, rhs._y) &&
+           isApproxEqual(_z, rhs._z) &&
+           isApproxEqual(_w, rhs._w);
 }
 
 Tuple Tuple::operator-() const
