@@ -21,9 +21,16 @@ public:
 
     bool operator==(const Tuple& rhs) const;
 
+    Tuple operator-() const;
+
+    Tuple operator+(const Tuple& rhs) const;
+    Tuple operator-(const Tuple& rhs) const;
+    Tuple operator*(double rhs) const;
+    Tuple operator/(double rhs) const;
+
     friend std::ostream& operator<<(std::ostream& os, const Tuple& tuple);
 
-private:
+protected:
     double _x;
     double _y;
     double _z;

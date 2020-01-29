@@ -43,6 +43,43 @@ bool Tuple::operator==(const Tuple& rhs) const
            isEqual(_w, rhs._w);
 }
 
+Tuple Tuple::operator-() const
+{
+    return Tuple(-_x, -_y, -_z, -_w);
+}
+
+Tuple Tuple::operator+(const Tuple& rhs) const
+{
+    return Tuple(_x + rhs._x,
+                 _y + rhs._y,
+                 _z + rhs._z,
+                 _w + rhs._w);
+}
+
+Tuple Tuple::operator-(const Tuple& rhs) const
+{
+    return Tuple(_x - rhs._x,
+                 _y - rhs._y,
+                 _z - rhs._z,
+                 _w - rhs._w);
+}
+
+Tuple Tuple::operator*(double rhs) const
+{
+    return Tuple(_x * rhs,
+                 _y * rhs,
+                 _z * rhs,
+                 _w * rhs);
+}
+
+Tuple Tuple::operator/(double rhs) const
+{
+    return Tuple(_x / rhs,
+                 _y / rhs,
+                 _z / rhs,
+                 _w / rhs);
+}
+
 std::ostream& operator<<(std::ostream& os, const Tuple& tuple)
 {
     os << "(" << tuple._x << ", " << tuple._y << ", " << tuple._z << ", " << tuple._w << ")";
