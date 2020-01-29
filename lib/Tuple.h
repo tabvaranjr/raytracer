@@ -1,10 +1,6 @@
 #pragma once
 
-#include <cmath>
 #include <ostream>
-
-const double EPSILON = 1e-6;
-bool isEqual(double a, double b);
 
 class Tuple
 {

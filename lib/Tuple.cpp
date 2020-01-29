@@ -1,5 +1,7 @@
 #include "Tuple.h"
 
+#include "Math.h"
+
 Tuple::Tuple(double x, double y, double z, double w)
     : _x(x), _y(y), _z(z), _w(w)
 {
@@ -84,9 +86,4 @@ std::ostream& operator<<(std::ostream& os, const Tuple& tuple)
 {
     os << "(" << tuple._x << ", " << tuple._y << ", " << tuple._z << ", " << tuple._w << ")";
     return os;
-}
-
-bool isEqual(double a, double b)
-{
-    return std::abs(a - b) < EPSILON;
 }
