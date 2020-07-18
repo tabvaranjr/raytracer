@@ -7,9 +7,9 @@ class Color : public Tuple
 public:
     Color(double r, double g, double b);
 
-    double red();
-    double green();
-    double blue();
+    double red() const;
+    double green() const;
+    double blue() const;
 
     Color hadamard(const Color& rhs) const;
 };

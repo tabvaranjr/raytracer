@@ -5,17 +5,17 @@ Color::Color(double r, double g, double b)
 {
 }
 
-double Color::red()
+double Color::red() const
 {
     return _x;
 }
 
-double Color::green()
+double Color::green() const
 {
     return _y;
 }
 
-double Color::blue()
+double Color::blue() const
 {
     return _z;
 }
