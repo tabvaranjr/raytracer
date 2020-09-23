@@ -7,6 +7,18 @@
 #include "Canvas.h"
 #include "Color.h"
 
+constexpr int MaxLength = 70;
+
+int saturate(double v, int min, int max)
+{
+    return std::clamp<int>(std::round(v), min, max);
+}
+
+CanvasToPpm::CanvasToPpm()
+    : _lineLength(0)
+{
+}
+
 void CanvasToPpm::header(std::ostream& os, const Canvas& c)
 {
     fmt::print(os, "P3\n");
@@ -16,64 +28,48 @@ void CanvasToPpm::header(std::ostream& os, const Canvas& c)
 
 void CanvasToPpm::data(std::ostream& os, const Canvas& c)
 {
+    CanvasToPpm conv;
+
     for (auto h = 0; h < c.height(); h++)
     {
-        auto length = 0;
+        conv.resetLineLength();
 
         for (auto w = 0; w < c.width(); w++)
         {
             const auto& px = c.pixel(w, h);
-
-            {
-                auto entry = std::to_string(saturate(px.red() * 255, 0, 255));
-                if (length + entry.length() + 1 > 70)
-                {
-                    fmt::print(os, "\n");
-                    length = 0;
-                }
-
-                if (length != 0)
-                    fmt::print(os, " ");
-                fmt::print(os, entry);
-                length += entry.length() + 1;
-            }
-
-            {
-                auto entry = std::to_string(saturate(px.green() * 255, 0, 255));
-                if (length + entry.length() + 1 > 70)
-                {
-                    fmt::print(os, "\n");
-                    length = 0;
-                }
-
-                if (length != 0)
-                    fmt::print(os, " ");
-                fmt::print(os, entry);
-
-                length += entry.length() + 1;
-            }
-
-            {
-                auto entry = std::to_string(saturate(px.blue() * 255, 0, 255));
-                if (length + entry.length() + 1 > 70)
-                {
-                    fmt::print(os, "\n");
-                    length = 0;
-                }
-
-                if (length != 0)
-                    fmt::print(os, " ");
-                fmt::print(os, entry);
-
-                length += entry.length() + 1;
-            }
+            conv.writePixel(os, px);
         }
 
         fmt::print(os, "\n");
     }
 }
 
-int CanvasToPpm::saturate(double v, int min, int max)
+void CanvasToPpm::resetLineLength()
 {
-    return std::clamp<int>(std::round(v), min, max);
+    _lineLength = 0;
+}
+
+void CanvasToPpm::writePixel(std::ostream& os, const Color& px)
+{
+    writeChannel(os, px.red());
+    writeChannel(os, px.green());
+    writeChannel(os, px.blue());
+}
+
+void CanvasToPpm::writeChannel(std::ostream& os, double c)
+{
+    auto entry = std::to_string(saturate(c * 255, 0, 255));
+    if (_lineLength + entry.length() + 1 > MaxLength)
+    {
+        fmt::print(os, "\n");
+        resetLineLength();
+    }
+
+    if (_lineLength != 0)
+    {
+        fmt::print(os, " ");
+    }
+
+    fmt::print(os, entry);
+    _lineLength += entry.length() + 1;
 }
