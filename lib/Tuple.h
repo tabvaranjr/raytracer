@@ -1,6 +1,6 @@
 #pragma once
 
-#include <iosfwd>
+#include <fmt/format.h>
 
 class Tuple
 {
@@ -24,11 +24,19 @@ public:
     Tuple operator*(double rhs) const;
     Tuple operator/(double rhs) const;
 
-    friend std::ostream& operator<<(std::ostream& os, const Tuple& tuple);
-
 protected:
     double _x;
     double _y;
     double _z;
     double _w;
+};
+
+template <>
+struct fmt::formatter<Tuple> : fmt::formatter<std::string>
+{
+    template <typename FormatContext>
+    auto format(Tuple const& t, FormatContext& ctx)
+    {
+        return formatter<std::string>::format(fmt::format("({}, {}, {}, {})", t.x(), t.y(), t.z(), t.w()), ctx);
+    }
 };

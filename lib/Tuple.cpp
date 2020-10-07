@@ -1,7 +1,5 @@
 #include "Tuple.h"
 
-#include <ostream>
-
 #include "Math.h"
 
 Tuple::Tuple(double x, double y, double z, double w)
@@ -82,10 +80,4 @@ Tuple Tuple::operator/(double rhs) const
                  _y / rhs,
                  _z / rhs,
                  _w / rhs);
-}
-
-std::ostream& operator<<(std::ostream& os, const Tuple& tuple)
-{
-    os << "(" << tuple._x << ", " << tuple._y << ", " << tuple._z << ", " << tuple._w << ")";
-    return os;
 }

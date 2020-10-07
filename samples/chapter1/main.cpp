@@ -34,38 +34,6 @@ Projectile tick(Environment env, Projectile proj)
     return {position, velocity};
 };
 
-template <>
-struct fmt::formatter<Point>
-{
-    template <typename ParseContext>
-    constexpr auto parse(ParseContext& ctx)
-    {
-        return ctx.begin();
-    }
-
-    template <typename FormatContext>
-    auto format(Point const& p, FormatContext& ctx)
-    {
-        return fmt::format_to(ctx.out(), "({}, {}, {})", p.x(), p.y(), p.z());
-    }
-};
-
-template <>
-struct fmt::formatter<Vector>
-{
-    template <typename ParseContext>
-    constexpr auto parse(ParseContext& ctx)
-    {
-        return ctx.begin();
-    }
-
-    template <typename FormatContext>
-    auto format(Vector const& v, FormatContext& ctx)
-    {
-        return fmt::format_to(ctx.out(), "({}, {}, {})", v.x(), v.y(), v.z());
-    }
-};
-
 int main()
 {
     Environment e{Vector(0, -0.1, 0), Vector(-0.01, 0, 0)};

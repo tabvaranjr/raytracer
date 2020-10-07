@@ -1,5 +1,6 @@
 #pragma once
 
+#include <fmt/format.h>
 #include "Tuple.h"
 
 class Vector : public Tuple
@@ -15,3 +16,14 @@ public:
 
     Vector cross(const Vector& rhs) const;
 };
+
+template <>
+struct fmt::formatter<Vector> : fmt::formatter<std::string>
+{
+    template <typename FormatContext>
+    auto format(Vector const& v, FormatContext& ctx)
+    {
+        return formatter<std::string>::format(fmt::format("({}, {}, {})", v.x(), v.y(), v.z()), ctx);
+    }
+};
+
