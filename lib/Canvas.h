@@ -1,8 +1,7 @@
 #pragma once
 
 #include <vector>
-
-class Color;
+#include "Color.h"
 
 class Canvas
 {
