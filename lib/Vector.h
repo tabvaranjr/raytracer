@@ -7,6 +7,7 @@ class Vector : public Tuple
 {
 public:
     Vector(double x, double y, double z);
+    Vector(const Tuple& t);
 
     double magnitude() const;
 

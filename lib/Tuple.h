@@ -5,6 +5,7 @@
 class Tuple
 {
 public:
+    Tuple();
     Tuple(double x, double y, double z, double w);
 
     double x() const;

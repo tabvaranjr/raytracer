@@ -7,6 +7,14 @@ Vector::Vector(double x, double y, double z)
 {
 }
 
+Vector::Vector(const Tuple& t)
+{
+    _x = t.x();
+    _y = t.y();
+    _z = t.z();
+    _w = t.w();
+}
+
 double Vector::magnitude() const
 {
     return std::sqrt(_x * _x + _y * _y + _z * _z);

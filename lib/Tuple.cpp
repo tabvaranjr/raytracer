@@ -2,6 +2,8 @@
 
 #include "Math.h"
 
+Tuple::Tuple() = default;
+
 Tuple::Tuple(double x, double y, double z, double w)
     : _x(x), _y(y), _z(z), _w(w)
 {
